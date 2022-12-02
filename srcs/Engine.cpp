@@ -47,9 +47,8 @@ void Engine::init_options(void) {
 }
 
 void Engine::parse_option(void) {
-  char arg[5];
-  strcpy(arg, _argv[_i]);
-  std::string option = &arg[1];
+  std::string arg = _argv[_i];
+  std::string option = arg.substr(arg.find('-') + 1);
   if (is_option_available(option)) {
     _options[option] = true;
   }
