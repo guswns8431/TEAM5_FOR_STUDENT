@@ -41,11 +41,8 @@ int Request::parse_request_line(void) {
     return 400;
   }
   _target = get_current_word_from_data();
-  for (int i = 0; i < 50; i++)
-    log[i] = _target[i];
   Engine::logger.info("Page Log : ");
-  printf(log);
-  printf("\n");
+  std::cout << _target << std::cout;
   if (!is_target_begin_with_separator()) {
     return 400;
   }
