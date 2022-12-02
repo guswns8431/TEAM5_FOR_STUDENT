@@ -159,7 +159,8 @@ bool Parser::is_server_directive(Tokens::iterator it) const {
 }
 
 bool Parser::is_workers_in_range(void) const {
-  return _worker_count >= MINIMUM_WORKER_COUNT;
+  return _worker_count >= MINIMUM_WORKER_COUNT &&
+          _worker_count <= MAXIMUM_WORKER_COUNT;
 }
 
 bool Parser::is_workers_directive(Tokens::iterator it) const {
@@ -245,6 +246,9 @@ void Parser::parse_workers_directive(Tokens::iterator it) {
                           + get_current_parsing_line(get_line_of_token(it)));
   }
   _worker_count = static_cast<std::size_t>(std::strtod(it->c_str(), ft::nil));
+  if (!is_workers_in_range()) {
+    throw ParserException("workers not in a valid range [1 - 8]"
+                          + get_current_parsing_line(get_line_of_token(it)));
 }
 
 void Parser::parse_top_directives(void) {

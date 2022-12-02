@@ -9,7 +9,7 @@
 
 class Parser {
  private:
-  int _worker_count;
+  std::size_t _worker_count;
   std::size_t _server_count;
   std::size_t _newline_count;
   std::string _config;
