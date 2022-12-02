@@ -249,6 +249,7 @@ void Parser::parse_workers_directive(Tokens::iterator it) {
   if (!is_workers_in_range()) {
     throw ParserException("workers not in a valid range [1 - 8]"
                           + get_current_parsing_line(get_line_of_token(it)));
+  }
 }
 
 void Parser::parse_top_directives(void) {

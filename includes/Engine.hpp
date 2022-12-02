@@ -16,7 +16,6 @@ class Engine {
   int _i;
   int _argc;
   char **_argv;
-  char _config_file[30];
   Parser *_parser;
   Options _options;
   Workers _workers;

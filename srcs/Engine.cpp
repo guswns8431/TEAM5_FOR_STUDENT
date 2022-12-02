@@ -21,7 +21,6 @@ Engine::Engine(int argc, char **argv)
   if (is_help_option_on()) {
     print_guide_and_exit();
   }
-  std::strcpy(_config_file, argv[1]);
   _parser = new Parser(argv[_i - 1]);
   launch();
 }
