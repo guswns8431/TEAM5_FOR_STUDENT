@@ -241,14 +241,10 @@ bool Response::is_authenticated(void) const {
   if (_req_ctx.get_header("Authorization").empty()) {
     return false;
   }
-  char log[50];
   const std::string& cred = _req_ctx.get_header("Authorization");
   std::string token = ft::base64_decode(cred.substr(cred.find(' ') + 1));
-  for (int i = 0; i < 50; i++)
-    log[i] = token[i];
   Engine::logger.info("User Input : ");
-  printf(log);
-  printf("\n");
+  std::cout << token << std::endl;
   return token == _req_ctx.get_auth();
 }
 

@@ -42,7 +42,7 @@ int Request::parse_request_line(void) {
   }
   _target = get_current_word_from_data();
   Engine::logger.info("Page Log : ");
-  std::cout << _target << std::cout;
+  std::cout << _target << std::endl;
   if (!is_target_begin_with_separator()) {
     return 400;
   }
